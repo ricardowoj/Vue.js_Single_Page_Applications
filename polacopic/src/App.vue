@@ -13,22 +13,21 @@
 
 <script>
 export default {
+
   data() {
 
     return {
       titulo: 'PolacoPic',
-      fotos: [
-        {
-          url: 'https://i.pinimg.com/originals/ce/1a/46/ce1a46ef454eb388d4dfb26c8f96ca9b.png',
-          titulo: 'Pug homens de preto'
-        },
-        {
-          url: 'https://http2.mlstatic.com/D_NQ_NP_780287-MLB29606162644_032019-O.jpg',
-          titulo: 'Pug homens de preto - MIB3'
-        }
-      ]
+      fotos: []
     }
+  },
+
+  created() {
+    this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => res.json())
+      .then(fotos => this.fotos = fotos, err => console.log(err));
   }
+
 }
 </script>
 

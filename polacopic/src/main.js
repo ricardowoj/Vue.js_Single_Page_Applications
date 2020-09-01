@@ -3,7 +3,7 @@ import App from './App.vue'
 
 import VueResource from 'vue-resource';
 
-Vue.udr(VueResource);
+Vue.use(VueResource);
 
 new Vue({
   el: '#app',
