@@ -2,30 +2,38 @@
 
   <div class="container">
     <!-- As a heading -->
-    <nav class="navbar bg-info text-white font-weight-bold">
+    <nav class="navbar bg-info text-white font-weight-bold shadow-sm p-3 mb-5 rounded">
       <span class="navbar-brand mb-0 h1 mx-auto">Vue.js Pictures</span>
     </nav>
-    <div class="row" style="list-style: none;">
 
-      <div class="col mb-5 mr-1 mt-5 rounded-lg" v-for="foto of fotos" :key="foto.id">
+    <div class="container">
+      <div class="row">
 
-        <div class="card mx-auto" style="width: 18rem;">
-          <img class="bd-placeholder-img card-img-top" width="100%" height="180" :src="foto.url" :alt="foto.titulo">
+          <div class="mx-auto mt-5" v-for="foto of fotos" :key="foto.id">
+            <my-card :titulo="foto.titulo">
 
-          <div class="card-body font-weight-bold mx-auto">
-            <p class="card-text">{{ foto.titulo }}</p>
+              <img class="bd-placeholder-img card-img-top" width="100%" height="180" :src="foto.url" :alt="foto.titulo">
+
+            </my-card>
           </div>
-        </div>
 
       </div>
     </div>
+
+
 
   </div>
 
 </template>
 
 <script>
+import Painel from './components/shared/painel/Painel'
+
 export default {
+
+  components: {
+    'my-card' : Painel
+  },
 
   data() {
 
